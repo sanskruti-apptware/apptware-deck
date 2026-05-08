@@ -18,10 +18,7 @@
   --gradient-start: #6c3aed;
   --gradient-end: #06b6d4;
   --section-bg: #f8fafc;
-}
 
-@theme inline {
-  --color-background: var(--background);
   --color-foreground: var(--foreground);
   --color-primary: var(--primary);
   --color-primary-light: var(--primary-light);
@@ -49,44 +46,152 @@
   --animate-logo-scroll: logo-scroll 30s linear infinite;
 }
 
+.btn-outline {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold rounded-full;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  background: transparent;
+  transition: all 0.3s ease;
+}
+
+.btn-outline:hover {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: var(--foreground);
+  border-color: transparent;
+}
+
+
+.btn-primary:hover {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+  transform: translateY(-0.125rem);
+}
+
+/* CTA button variant */
+.btn-cta {
+  @apply inline-flex items-center justify-center gap-2 px-6 py-3 text-base font-semibold rounded-full text-white;
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  box-shadow: 0 4px 14px rgba(108, 58, 237, 0.35);
+  transition: all 0.3s ease;
+}
+
+.btn-cta:hover {
+  box-shadow: 0 6px 20px rgba(108, 58, 237, 0.5);
+  transform: translateY(-2px);
+}
+
+/* Social icon buttons */
+.social-icon {
+  @apply w-10 h-10 rounded-full flex items-center justify-center transition-all duration-300;
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--muted);
+}
+
+.social-icon:hover {
+  background: linear-gradient(to right, var(--primary), var(--primary-light));
+  color: white;
+  border-color: transparent;
+  box-shadow: 0 4px 12px rgba(108, 58, 237, 0.3);
+}
+
+/* Animated background utility */
+.bg-animated {
+  background: radial-gradient(circle at 20% 50%, var(--gradient-start) 0%, var(--gradient-end) 70%);
+  background-size: 200% 200%;
+  animation: bgShift 12s ease infinite;
+}
+
+
 @keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
 }
 
 @keyframes fade-in-up {
-  from { opacity: 0; transform: translateY(24px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(24px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 @keyframes slide-in-left {
-  from { opacity: 0; transform: translateX(-32px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(-32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes slide-in-right {
-  from { opacity: 0; transform: translateX(32px); }
-  to { opacity: 1; transform: translateX(0); }
+  from {
+    opacity: 0;
+    transform: translateX(32px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateX(0);
+  }
 }
 
 @keyframes scale-in {
-  from { opacity: 0; transform: scale(0.9); }
-  to { opacity: 1; transform: scale(1); }
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
 }
 
 @keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-12px); }
+
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-12px);
+  }
 }
 
 @keyframes pulse-subtle {
-  0%, 100% { opacity: 1; }
-  50% { opacity: 0.85; }
+
+  0%,
+  100% {
+    opacity: 1;
+  }
+
+  50% {
+    opacity: 0.85;
+  }
 }
 
 @keyframes logo-scroll {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 /* Smooth scrolling */
@@ -106,13 +211,16 @@ body {
 ::-webkit-scrollbar {
   width: 6px;
 }
+
 ::-webkit-scrollbar-track {
   background: transparent;
 }
+
 ::-webkit-scrollbar-thumb {
   background: var(--muted-light);
   border-radius: 3px;
 }
+
 ::-webkit-scrollbar-thumb:hover {
   background: var(--muted);
 }
@@ -142,6 +250,7 @@ body {
 .gradient-border {
   position: relative;
 }
+
 .gradient-border::before {
   content: '';
   position: absolute;
@@ -158,7 +267,7 @@ body {
 
 /* Subtle grid background */
 .bg-grid {
-  background-image: 
+  background-image:
     linear-gradient(rgba(108, 58, 237, 0.03) 1px, transparent 1px),
     linear-gradient(90deg, rgba(108, 58, 237, 0.03) 1px, transparent 1px);
   background-size: 40px 40px;
@@ -166,7 +275,7 @@ body {
 
 /* Hero radial gradient */
 .hero-gradient {
-  background: 
+  background:
     radial-gradient(ellipse 80% 60% at 50% -10%, rgba(108, 58, 237, 0.08) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 80% 50%, rgba(6, 182, 212, 0.05) 0%, transparent 60%),
     radial-gradient(ellipse 60% 40% at 20% 50%, rgba(108, 58, 237, 0.05) 0%, transparent 60%);
@@ -174,7 +283,7 @@ body {
 
 /* CTA section gradient */
 .cta-gradient {
-  background: 
+  background:
     radial-gradient(ellipse 70% 50% at 50% 100%, rgba(108, 58, 237, 0.06) 0%, transparent 70%),
     radial-gradient(ellipse 50% 40% at 20% 0%, rgba(6, 182, 212, 0.04) 0%, transparent 60%);
 }

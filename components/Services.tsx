@@ -1,34 +1,47 @@
 "use client";
 
-import { Bot, Network, Settings2 } from "lucide-react";
-
-const services = [
+const cases = [
   {
-    icon: Bot,
-    title: "Custom AI Agents",
-    description:
-      "We build bespoke AI agents tailored to your business processes, automating complex workflows and driving intelligent decision-making at scale.",
+    label: "Healthcare",
+    headline: "AI-powered EHR integration for better patient outcomes",
+    body: "Built an AI solution enhancing discharge management, patient monitoring, and social determinants analysis. Customizable, non-disruptive EHR workflows from day one.",
+    metrics: [
+      "Accurate discharge prediction",
+      "Real-time patient snapshots",
+      "Early deterioration detection",
+    ],
     gradient: "from-violet-500 to-purple-600",
-    bgAccent: "bg-violet-50",
-    iconColor: "text-violet-600",
+    bgGradient: "from-violet-50 to-indigo-50",
+    iconBg: "bg-violet-100",
+    badgeColor: "bg-violet-100 text-violet-700",
   },
   {
-    icon: Network,
-    title: "Infrastructure Integration",
-    description:
-      "Seamless integration of AI systems into your existing tech stack, ensuring minimal disruption and maximum compatibility with enterprise architecture.",
-    gradient: "from-blue-500 to-cyan-500",
-    bgAccent: "bg-blue-50",
-    iconColor: "text-blue-600",
+    label: "BFSI",
+    headline: "Partner onboarding cut from days to hours",
+    body: "Integrated AADHAAR & DigiLocker for secure KYC verification and real-time data sync on a leading trading platform. Cloud-based infrastructure built for high-volume performance.",
+    metrics: [
+      "Faster onboarding — days → hours",
+      "Real-time data sync",
+      "Enhanced security & access controls",
+    ],
+    gradient: "from-cyan-500 to-blue-500",
+    bgGradient: "from-cyan-50 to-blue-50",
+    iconBg: "bg-cyan-100",
+    badgeColor: "bg-cyan-100 text-cyan-700",
   },
   {
-    icon: Settings2,
-    title: "Maintenance & MLOps",
-    description:
-      "Continuous monitoring, model retraining, and optimization to keep your AI systems performing at peak efficiency with enterprise-grade reliability.",
+    label: "Retail",
+    headline: "20-second auction engine for a live marketplace",
+    body: "Transformed a digital marketplace with an AI-driven auction platform, enabling real-time transactions and eliminating long auction delays for buyers and sellers.",
+    metrics: [
+      "20-second live auctions",
+      "Seamless buyer & seller UX",
+      "AI-driven bidding analytics",
+    ],
     gradient: "from-emerald-500 to-teal-500",
-    bgAccent: "bg-emerald-50",
-    iconColor: "text-emerald-600",
+    bgGradient: "from-emerald-50 to-teal-50",
+    iconBg: "bg-emerald-100",
+    badgeColor: "bg-emerald-100 text-emerald-700",
   },
 ];
 
@@ -36,53 +49,78 @@ export default function Services() {
   return (
     <section id="services" className="relative py-20 sm:py-28 bg-white">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Section Header */}
+
+        {/* Header */}
         <div className="text-center mb-16">
           <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-            Our Services
+            Proof of Work
           </span>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">
-            End-to-End AI Engineering
+            Real impact, measured.
           </h2>
           <p className="max-w-2xl mx-auto text-lg text-muted leading-relaxed">
-            From strategy and design to deployment and maintenance — we provide comprehensive AI
-            engineering services that transform businesses.
+            Outcomes first, always. The technology is the how. The result is the why.
           </p>
         </div>
 
-        {/* Service Cards */}
+        {/* Grid */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
-          {services.map((service, index) => (
+          {cases.map((c, index) => (
             <div
-              key={service.title}
-              className="group relative p-8 rounded-2xl border border-border-light bg-white hover:shadow-xl hover:shadow-gray-100/80 transition-all duration-500 hover:-translate-y-1"
-              style={{ animationDelay: `${index * 0.1}s` }}
+              key={index}
+              className={`
+                group relative rounded-2xl overflow-hidden
+                gradient-border bg-gradient-to-br ${c.bgGradient}
+                p-8 sm:p-10
+                transition-all duration-300 ease-out
+                hover:-translate-y-1 hover:shadow-xl
+              `}
             >
-              {/* Hover gradient accent */}
-              <div className={`absolute inset-0 rounded-2xl bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-[0.02] transition-opacity duration-500`} />
+              {/* Hover shine */}
+              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
 
-              {/* Icon */}
-              <div
-                className={`w-14 h-14 rounded-xl ${service.bgAccent} flex items-center justify-center mb-6 group-hover:scale-105 transition-transform duration-300`}
-              >
-                <service.icon className={`w-7 h-7 ${service.iconColor}`} />
+              {/* Label */}
+              <div className="mb-4">
+                <span className={`text-xs font-semibold px-3 py-1 rounded-full ${c.badgeColor}`}>
+                  {c.label}
+                </span>
               </div>
 
-              {/* Content */}
-              <h3 className="text-xl font-bold text-foreground mb-3">
-                {service.title}
+              {/* Headline */}
+              <h3 className="text-lg font-bold text-foreground mb-3 leading-snug">
+                {c.headline}
               </h3>
-              <p className="text-muted leading-relaxed text-[15px]">
-                {service.description}
+
+              {/* Body */}
+              <p className="text-sm text-muted leading-relaxed mb-6">
+                {c.body}
               </p>
 
-              {/* Bottom accent line */}
+              {/* Metrics */}
+              <ul className="space-y-2">
+                {c.metrics.map((m) => (
+                  <li key={m} className="flex items-start gap-2 text-sm">
+                    <span className={`mt-0.5 w-4 h-4 rounded-full ${c.iconBg} flex items-center justify-center`}>
+                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                    </span>
+                    <span className="text-foreground font-medium">{m}</span>
+                  </li>
+                ))}
+              </ul>
+
+              {/* Animated bottom border */}
               <div
-                className={`absolute bottom-0 left-8 right-8 h-0.5 bg-gradient-to-r ${service.gradient} rounded-full opacity-0 group-hover:opacity-100 transition-opacity duration-500`}
+                className={`
+                  absolute bottom-0 left-0 right-0 h-[2px]
+                  bg-gradient-to-r ${c.gradient}
+                  scale-x-0 group-hover:scale-x-100
+                  origin-left transition-transform duration-500
+                `}
               />
             </div>
           ))}
         </div>
+
       </div>
     </section>
   );
