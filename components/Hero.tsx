@@ -22,20 +22,21 @@ export default function Hero() {
         {/* Badge */}
         <div className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/5 border border-primary/10 text-primary text-sm font-medium mb-8 animate-fade-in">
           <span className="w-2 h-2 rounded-full bg-primary animate-pulse-subtle" />
-          Intelligent AI Solutions for Enterprises
+          AI Strategy · Engineering · Execution
         </div>
 
         {/* Main Heading */}
         <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold tracking-tight text-foreground leading-[1.1] mb-6 animate-fade-in-up">
-          Engineering the Next
+          AI strategy that ships.
           <br />
-          <span className="gradient-text">Generation</span> of AI Solutions
+          Built by <span className="gradient-text">operators</span>,
+          <br />
+          not theorists.
         </h1>
 
         {/* Subtitle */}
         <p className="max-w-2xl mx-auto text-lg sm:text-xl text-muted leading-relaxed mb-10 animate-fade-in-up" style={{ animationDelay: "0.15s" }}>
-          We specialize in building enterprise-grade AI infrastructure, from custom AI agents to
-          end-to-end deployment, enabling organizations to harness the full power of artificial intelligence.
+          We help startups and SMBs turn AI from a strategy doc into a product that ships. Strategy and engineering under one roof — no handoff, no gap.
         </p>
 
         {/* CTA Buttons */}
@@ -44,29 +45,29 @@ export default function Hero() {
           style={{ animationDelay: "0.3s" }}
         >
           <a
-            href="#services"
-            className="group inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-white bg-gradient-to-r from-primary to-primary-light rounded-full shadow-lg shadow-primary/20 hover:shadow-xl hover:shadow-primary/30 transition-all duration-300 hover:-translate-y-0.5"
+            href="#cta"
+            className="btn-cta"
           >
-            Discover Our Vision
+            Book a Strategy Call
             <ArrowRight
               size={16}
               className="group-hover:translate-x-0.5 transition-transform"
             />
           </a>
           <a
-            href="#cta"
-            className="inline-flex items-center gap-2 px-7 py-3.5 text-sm font-semibold text-primary border-2 border-primary/20 bg-white rounded-full hover:border-primary/40 hover:bg-primary/5 transition-all duration-300"
+            href="#services"
+            className="btn-outline"
           >
-            Contact Us
+            See what we&apos;ve built ↓
           </a>
         </div>
 
         {/* Scroll indicator */}
-        <div className="mt-16 animate-fade-in" style={{ animationDelay: "0.6s" }}>
+        {/* <div className="mt-16 animate-fade-in" style={{ animationDelay: "0.6s" }}>
           <div className="mx-auto w-6 h-10 rounded-full border-2 border-muted-light/50 flex items-start justify-center p-1.5">
             <div className="w-1.5 h-3 bg-muted-light rounded-full animate-bounce" />
           </div>
-        </div>
+        </div> */}
       </div>
     </section>
   );
