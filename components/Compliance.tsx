@@ -1,7 +1,5 @@
 "use client";
 
-import { Shield } from "lucide-react";
-
 const badges = [
   { label: "SOC 2 Type II", detail: "All delivered projects fully SOC 2 compliant." },
   { label: "HIPAA", detail: "Certified for all US healthcare projects." },
@@ -21,34 +19,38 @@ const venues = [
 
 export default function Compliance() {
   return (
-    <section className="relative py-20 sm:py-28 bg-white border-t border-border-light">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        {/* Eyebrow */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-            Trust &amp; Credibility
-          </span>
+    <section className="bg-bg-dark py-24 md:py-32">
+      <div className="container-custom">
+        {/* Section Header */}
+        <div className="mb-14">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-secondary mb-3">
+            Trust & Credibility
+          </p>
+          <h2 className="section-title text-text-dark max-w-2xl">
+            Built to comply. Built to scale.
+          </h2>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-16 lg:gap-24">
           {/* Left: Compliance Badges */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
-              Built to comply.
-            </h3>
-            <div className="space-y-4">
-              {badges.map((b) => (
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-secondary mb-8">
+              Compliance
+            </p>
+            <div className="space-y-px">
+              {badges.map((b, i) => (
                 <div
                   key={b.label}
-                  className="flex items-start gap-4 p-5 rounded-xl bg-section-bg border border-border-light hover:border-primary/20 hover:shadow-md transition-all duration-300"
+                  className={`flex items-start justify-between py-5 ${
+                    i < badges.length - 1 ? "border-b border-white/8" : ""
+                  }`}
                 >
-                  <div className="w-10 h-10 rounded-lg bg-primary/10 flex items-center justify-center flex-shrink-0">
-                    <Shield className="w-5 h-5 text-primary" />
-                  </div>
-                  <div>
-                    <p className="font-bold text-foreground">{b.label}</p>
-                    <p className="text-sm text-muted mt-0.5">{b.detail}</p>
-                  </div>
+                  <p className="text-[16px] font-display font-bold text-text-dark">
+                    {b.label}
+                  </p>
+                  <p className="text-[13px] text-text-secondary text-right max-w-[200px]">
+                    {b.detail}
+                  </p>
                 </div>
               ))}
             </div>
@@ -56,14 +58,21 @@ export default function Compliance() {
 
           {/* Right: Stage Presence */}
           <div>
-            <h3 className="text-2xl sm:text-3xl font-bold text-foreground mb-8">
-              On the global stage.
-            </h3>
-            <ul className="space-y-3">
-              {venues.map((v) => (
-                <li key={v} className="flex items-center gap-3">
-                  <span className="w-1.5 h-1.5 rounded-full bg-primary flex-shrink-0" />
-                  <span className="text-lg text-foreground font-medium">{v}</span>
+            <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-secondary mb-8">
+              Speaking Stages
+            </p>
+            <ul className="space-y-px">
+              {venues.map((v, i) => (
+                <li
+                  key={v}
+                  className={`flex items-center justify-between py-5 ${
+                    i < venues.length - 1 ? "border-b border-white/8" : ""
+                  }`}
+                >
+                  <span className="text-[16px] text-text-dark font-display font-bold">
+                    {v}
+                  </span>
+                  <span className="text-accent text-[13px]">→</span>
                 </li>
               ))}
             </ul>

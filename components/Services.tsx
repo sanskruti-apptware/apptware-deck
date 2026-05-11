@@ -10,10 +10,6 @@ const cases = [
       "Real-time patient snapshots",
       "Early deterioration detection",
     ],
-    gradient: "from-violet-500 to-purple-600",
-    bgGradient: "from-violet-50 to-indigo-50",
-    iconBg: "bg-violet-100",
-    badgeColor: "bg-violet-100 text-violet-700",
   },
   {
     label: "BFSI",
@@ -24,10 +20,6 @@ const cases = [
       "Real-time data sync",
       "Enhanced security & access controls",
     ],
-    gradient: "from-cyan-500 to-blue-500",
-    bgGradient: "from-cyan-50 to-blue-50",
-    iconBg: "bg-cyan-100",
-    badgeColor: "bg-cyan-100 text-cyan-700",
   },
   {
     label: "Retail",
@@ -38,90 +30,57 @@ const cases = [
       "Seamless buyer & seller UX",
       "AI-driven bidding analytics",
     ],
-    gradient: "from-emerald-500 to-teal-500",
-    bgGradient: "from-emerald-50 to-teal-50",
-    iconBg: "bg-emerald-100",
-    badgeColor: "bg-emerald-100 text-emerald-700",
   },
 ];
 
 export default function Services() {
   return (
-    <section id="services" className="relative py-20 sm:py-28 bg-white">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-
-        {/* Header */}
-        <div className="text-center mb-16">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-            Proof of Work
-          </span>
-          <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground tracking-tight mb-4">
+    <section id="services" className="bg-bg-light py-24 md:py-32">
+      <div className="container-custom">
+        {/* Section Header */}
+        <div className="mb-14">
+          <p className="eyebrow mb-3">Case Studies</p>
+          <h2 className="section-title text-text-light max-w-2xl">
             Real impact, measured.
           </h2>
-          <p className="max-w-2xl mx-auto text-lg text-muted leading-relaxed">
+          <p className="mt-5 text-[17px] text-text-secondary leading-relaxed max-w-[480px]">
             Outcomes first, always. The technology is the how. The result is the why.
           </p>
         </div>
 
         {/* Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {cases.map((c, index) => (
-            <div
-              key={index}
-              className={`
-                group relative rounded-2xl overflow-hidden
-                gradient-border bg-gradient-to-br ${c.bgGradient}
-                p-8 sm:p-10
-                transition-all duration-300 ease-out
-                hover:-translate-y-1 hover:shadow-xl
-              `}
-            >
-              {/* Hover shine */}
-              <div className="pointer-events-none absolute inset-0 opacity-0 group-hover:opacity-100 transition duration-500 bg-gradient-to-br from-white/10 via-transparent to-transparent" />
-
+            <div key={index} className="card-light flex flex-col">
               {/* Label */}
-              <div className="mb-4">
-                <span className={`text-xs font-semibold px-3 py-1 rounded-full ${c.badgeColor}`}>
-                  {c.label}
-                </span>
-              </div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-secondary mb-6">
+                {c.label}
+              </p>
 
               {/* Headline */}
-              <h3 className="text-lg font-bold text-foreground mb-3 leading-snug">
+              <h3 className="text-[20px] font-display font-bold text-text-light mb-4 leading-snug">
                 {c.headline}
               </h3>
 
               {/* Body */}
-              <p className="text-sm text-muted leading-relaxed mb-6">
+              <p className="text-[14px] text-text-secondary leading-relaxed mb-8 flex-1">
                 {c.body}
               </p>
 
               {/* Metrics */}
-              <ul className="space-y-2">
+              <ul className="space-y-2 border-t border-black/10 pt-6">
                 {c.metrics.map((m) => (
-                  <li key={m} className="flex items-start gap-2 text-sm">
-                    <span className={`mt-0.5 w-4 h-4 rounded-full ${c.iconBg} flex items-center justify-center`}>
-                      <span className="w-1.5 h-1.5 rounded-full bg-white" />
-                    </span>
-                    <span className="text-foreground font-medium">{m}</span>
+                  <li key={m} className="flex items-start gap-3 text-[13px] text-text-secondary">
+                    <span className="text-accent mt-0.5">→</span>
+                    <span>{m}</span>
                   </li>
                 ))}
               </ul>
-
-              {/* Animated bottom border */}
-              <div
-                className={`
-                  absolute bottom-0 left-0 right-0 h-[2px]
-                  bg-gradient-to-r ${c.gradient}
-                  scale-x-0 group-hover:scale-x-100
-                  origin-left transition-transform duration-500
-                `}
-              />
             </div>
           ))}
         </div>
-
       </div>
     </section>
+
   );
 }

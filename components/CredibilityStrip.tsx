@@ -1,23 +1,31 @@
 "use client";
 
 const stats = [
-  { value: "7+", label: "Years building at the frontier" },
-  { value: "15+", label: "Products shipped" },
-  { value: "21", label: "Countries" },
-  { value: "$2.8B", label: "Market opportunity in focus" },
+  { value: "52", suffix: "+", label: "Products shipped" },
+  { value: "8", suffix: "+", label: "Countries" },
+  { value: "40", suffix: "+", label: "Clients globally" },
+  { value: "42", suffix: "%", label: "YoY growth" },
 ];
 
 export default function CredibilityStrip() {
   return (
-    <section className="relative py-12 bg-white border-y border-gray-300 overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
-          {stats.map((stat, index) => (
-            <div key={index} className="text-center group">
-              <div className="text-3xl md:text-4xl font-bold text-foreground mb-1 group-hover:scale-105 transition-transform duration-300">
+    <section className="relative bg-bg-light py-20 md:py-24">
+      <div className="container-custom">
+        <div className="grid grid-cols-2 md:grid-cols-4">
+          {stats.map((stat, i) => (
+            <div
+              key={i}
+              className={`flex flex-col items-start justify-center px-10 py-8 ${
+                i < stats.length - 1
+                  ? "border-r border-black/10"
+                  : ""
+              }`}
+            >
+              <div className="text-[56px] font-display font-bold tracking-tight text-text-light leading-none mb-2">
                 {stat.value}
+                <span className="text-accent">{stat.suffix}</span>
               </div>
-              <div className="text-xs md:text-sm font-medium text-muted uppercase tracking-wider">
+              <div className="font-mono text-[12px] uppercase tracking-[0.12em] text-text-secondary">
                 {stat.label}
               </div>
             </div>
