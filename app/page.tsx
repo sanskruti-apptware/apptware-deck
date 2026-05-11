@@ -10,21 +10,32 @@ import Compliance from "@/components/Compliance";
 import TrustedBy from "@/components/TrustedBy";
 import CTA from "@/components/CTA";
 import Footer from "@/components/Footer";
+import ScrollReveal from "@/components/ScrollReveal";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-background">
+    <main>
+      <ScrollReveal />
+      {/* dark */}
       <Navbar />
       <Hero />
+      {/* light */}
       <CredibilityStrip />
+      {/* dark */}
       <WhyChooseUs />
+      {/* light */}
       <Framework />
+      {/* light — case studies */}
       <Services />
-
-      <Industries />
-
+      {/* dark */}
       <Team />
-
+      {/* light */}
+      <Industries />
+      {/* dark */}
+      <Compliance />
+      {/* light */}
+      <TrustedBy />
+      {/* dark */}
       <CTA />
       <Footer />
     </main>

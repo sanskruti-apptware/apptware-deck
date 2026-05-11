@@ -13,41 +13,40 @@ const clients = [
 
 export default function TrustedBy() {
   return (
-    <section className="relative py-16 border-y-4 border-gray-300 bg-white overflow-hidden">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="text-center mb-10">
-          <span className="inline-block text-xs font-semibold uppercase tracking-widest text-primary mb-3">
-            Client Portfolio1
-          </span>
-          <h2 className="text-2xl sm:text-3xl font-bold text-foreground mb-2">
+    <section className="bg-bg-light py-24 md:py-32">
+      <div className="container-custom">
+        {/* Section Header */}
+        <div className="mb-14">
+          <p className="eyebrow mb-3">Client Portfolio</p>
+          <h2 className="section-title text-text-light max-w-xl">
             40+ clients. 8 countries.
           </h2>
-          <p className="text-muted">From fast-moving startups to global enterprises.</p>
+          <p className="mt-5 text-[17px] text-text-secondary max-w-[480px]">
+            From fast-moving startups to global enterprises.
+          </p>
         </div>
 
-        {/* Scrolling logos */}
-        <div className="logo-scroll-container overflow-hidden">
-          <div className="flex animate-logo-scroll w-max">
-            {[...clients, ...clients].map((name, i) => (
-              <div
-                key={i}
-                className="flex items-center justify-center mx-8 sm:mx-12 min-w-[120px]"
+        {/* 4x2 Logo Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 border-t border-black/10 border-l">
+          {clients.map((name, i) => (
+            <div
+              key={i}
+              className="group flex items-center justify-center py-10 px-8 border-b border-r border-black/10 transition-all duration-200"
+            >
+              <span
+                className="text-[18px] font-display font-bold text-text-light/30 group-hover:text-text-light transition-all duration-200 select-none text-center"
               >
-                <span className="text-lg sm:text-xl font-bold text-muted-light/70 hover:text-muted transition-colors duration-300 select-none whitespace-nowrap">
-                  {name}
-                </span>
-              </div>
-            ))}
-          </div>
+                {name}
+              </span>
+            </div>
+          ))}
         </div>
 
-        {/* Geography */}
-        <div className="mt-10 flex items-center justify-center gap-6 flex-wrap">
-          {["60% USA", "30% APAC", "10% EU"].map((g) => (
-            <span key={g} className="text-sm font-semibold text-muted px-4 py-1.5 rounded-full bg-section-bg border border-border-light">
-              {g}
-            </span>
-          ))}
+        {/* Geography sub-label */}
+        <div className="mt-8">
+          <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-text-secondary">
+            60% USA · 30% APAC · 10% EU
+          </p>
         </div>
       </div>
     </section>

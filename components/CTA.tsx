@@ -1,65 +1,88 @@
 "use client";
 
-import { ArrowRight } from "lucide-react";
-import { FaLinkedin, FaTwitter, FaInstagram, FaFacebook } from "react-icons/fa";
-
 export default function CTA() {
   return (
-    <section id="cta" className="relative py-24 sm:py-32 overflow-hidden bg-white">
-      {/* Background */}
-      <div className="absolute inset-0 bg-grid opacity-50" />
-      <div className="absolute inset-0 cta-gradient opacity-60" />
+    <section id="cta" className="bg-bg-dark py-[120px]">
+      <div className="container-custom">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-20">
 
-      <div className="relative z-10 mx-auto max-w-4xl px-4 sm:px-6 lg:px-8 text-center">
-        <h2 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-foreground tracking-tight mb-6">
-          The window to move on AI is open.
-          <br />
-          <span className="gradient-text">Let&apos;s build before it closes.</span>
-        </h2>
-        <p className="text-xl text-muted mb-10 max-w-2xl mx-auto leading-relaxed">
-          Book a free strategy call. We&apos;ll map where AI restructures your market and what to build first.
-        </p>
-
-        <a
-          href="mailto:[EMAIL_ADDRESS]"
-          className="btn-cta mb-12"
-        >
-          Book a Free Strategy Call
-          <ArrowRight size={18} />
-        </a>
-
-        {/* Contact details */}
-        <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8 mb-10 flex-wrap">
-          <a href="mailto:[EMAIL_ADDRESS]" className="text-sm text-muted hover:text-foreground transition-colors font-medium">
-            [EMAIL_ADDRESS]
-          </a>
-          <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-light" />
-          <a href="tel:+919975352335" className="text-sm text-muted hover:text-foreground transition-colors font-medium">
-            +1 (862) 348-9095
-          </a>
-          <span className="hidden sm:block w-1 h-1 rounded-full bg-muted-light" />
-          <a href="https://www.axioai.co" target="_blank" rel="noopener noreferrer" className="text-sm text-muted hover:text-foreground transition-colors font-medium">
-            www.axioai.co
-          </a>
-        </div>
-
-        {/* Social links */}
-        <div className="flex items-center justify-center gap-4">
-          {[
-            { icon: FaLinkedin, label: "LinkedIn", href: "#" },
-            { icon: FaTwitter, label: "Twitter", href: "#" },
-            { icon: FaInstagram, label: "Instagram", href: "#" },
-            { icon: FaFacebook, label: "Facebook", href: "#" },
-          ].map(({ icon: Icon, label, href }) => (
+          {/* Left Column — 7/12 */}
+          <div className="lg:col-span-7">
+            <h2 className="font-display font-bold text-[72px] md:text-[80px] leading-[1.0] tracking-[-0.04em] text-text-dark mb-8">
+              The window<br />
+              to move on AI<br />
+              <em className="not-italic font-normal text-text-secondary" style={{ fontFamily: "Georgia, 'Times New Roman', serif" }}>
+                is open.
+              </em>
+            </h2>
+            <p className="text-[17px] text-text-secondary leading-relaxed max-w-[400px] mb-10">
+              Book a free strategy call. We'll map where AI restructures your market and what to build first.
+            </p>
             <a
-              key={label}
-              href={href}
-              aria-label={label}
-              className="social-icon"
+              href="mailto:hello@axioai.co"
+              className="btn-primary-dark"
             >
-              <Icon size={16} />
+              Book a Free Strategy Call
             </a>
-          ))}
+          </div>
+
+          {/* Right Column — 5/12 */}
+          <div className="lg:col-span-5 flex flex-col justify-center gap-8">
+            {/* Email */}
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-2">
+                Email
+              </p>
+              <a
+                href="mailto:hello@axioai.co"
+                className="text-[16px] text-text-dark hover:text-accent transition-colors"
+              >
+                hello@axioai.co
+              </a>
+            </div>
+
+            {/* Phone */}
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-2">
+                Phone
+              </p>
+              <a
+                href="tel:+18623489095"
+                className="text-[16px] text-text-dark hover:text-accent transition-colors"
+              >
+                +1 (862) 348-9095
+              </a>
+            </div>
+
+            {/* Website */}
+            <div>
+              <p className="font-mono text-[11px] uppercase tracking-[0.14em] text-accent mb-2">
+                Web
+              </p>
+              <a
+                href="https://www.axioai.co"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[16px] text-text-dark hover:text-accent transition-colors"
+              >
+                www.axioai.co
+              </a>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex flex-wrap gap-3 pt-4">
+              {["LinkedIn", "Twitter", "Instagram"].map((s) => (
+                <a
+                  key={s}
+                  href="#"
+                  className="px-4 py-2 border border-white/20 font-mono text-[11px] uppercase tracking-[0.10em] text-text-secondary hover:border-accent hover:text-accent transition-all duration-200 rounded-[2px]"
+                >
+                  {s}
+                </a>
+              ))}
+            </div>
+          </div>
+
         </div>
       </div>
     </section>
